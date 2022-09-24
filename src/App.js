@@ -1,25 +1,28 @@
 import React, { Component, useMemo } from "react";
 import './App.css';
-import Map from './components/map';
 import Mapdata from "./server/2022_JULY.json";
 import Data from './components/data';
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 // const GOOGLE_MAP_API = process.env.GOOGLE_MAP_API;
 // console.log("API KEY: " + GOOGLE_MAP_API);
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5qz7stbp7962yxHp_Udjp0rf_ZuIP2a0&callback=initMap">
-</script>
+// <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5qz7stbp7962yxHp_Udjp0rf_ZuIP2a0&callback=initMap">
+// </script>
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '800px',
+  height: '800px'
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 40.7412012,
+  lng: -73.9890337
 };
+
+const mark = {
+  lat: 40.7300939,
+  lng: -73.9908372
+}
 
 class App extends Component{
   constructor(props) {
@@ -31,7 +34,6 @@ class App extends Component{
 
   render(){
     const { Mapdata } = this.state;
-
     return(
       <div className="app">
         <div>hello sanity check</div>
@@ -44,7 +46,10 @@ class App extends Component{
             zoom={10}
           >
             { /* Child components, such as markers, info windows, etc. */ }
-            <></>
+            <Marker
+              icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
+              position={mark}
+            />
           </GoogleMap>
         </LoadScript>
         <Data Mapdata={Mapdata} />
