@@ -11,12 +11,7 @@ const DataDisplay = ({Mapdata}) => Mapdata.map((timelineObjects, index) => {
         <div key={index}>
             <div>sanity check 2</div>
             <div className="data_1">
-                {/* {timelineObjects.map((activitySegment, index) => {
-                    return (
-                        <div key={index}>
-                            <h2>{activitySegment}</h2>
-                        </div>);
-                })} */}
+                {}
             </div>
         </div>
     );
